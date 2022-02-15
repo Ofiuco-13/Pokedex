@@ -9,3 +9,16 @@ const fetchPokemon = () => {
       });
     });
 };
+
+const fetchPokemonData = (pokemon) => {
+  fetch(pokemon.url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((resJSON) => {
+      console.log(resJSON);
+    });
+};
+
+
+fetchPokemon()
