@@ -17,8 +17,25 @@ const fetchPokemonData = (pokemon) => {
     })
     .then((resJSON) => {
       console.log(resJSON);
+      renderData(resJSON)
     });
 };
 
+const renderData = (pokeData) => {
+  const container = document.querySelector("#container");
 
-fetchPokemon()
+  const pokemonContainer = document.createElement("div");
+  const name = document.createElement("h2");
+  name.innerHTML = pokeData.name;
+
+  const id = document.createElement("p");
+  id.innerHTML = `N° ${pokeData.id}`;
+
+  const type = document.createElement("ul")
+
+  pokemonContainer.appendChild(name);
+  pokemonContainer.appendChild(id);
+  container.appendChild(pokemonContainer);
+}
+
+fetchPokemon();
