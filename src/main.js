@@ -16,8 +16,7 @@ const fetchPokemonData = (pokemon) => {
       return res.json();
     })
     .then((resJSON) => {
-      console.log(resJSON);
-      renderData(resJSON)
+      renderData(resJSON);
     });
 };
 
@@ -31,11 +30,30 @@ const renderData = (pokeData) => {
   const id = document.createElement("p");
   id.innerHTML = `N° ${pokeData.id}`;
 
-  const type = document.createElement("ul")
+  const type = document.createElement("ul");
+  const sprite = document.createElement("div");
 
-  pokemonContainer.appendChild(name);
-  pokemonContainer.appendChild(id);
+  console.log(pokeData.sprites);
+
+  createTypes(pokeData.types, type);
+  createPokeImage(pokeData.sprites, sprite);
+
+  pokemonContainer.append(name, id, sprite, type);
   container.appendChild(pokemonContainer);
-}
+};
+
+const createTypes = (types, ul) => {
+  types.forEach((type) => {
+    const typeLi = document.createElement("li");
+    typeLi.innerHTML = type["type"]["name"];
+    ul.appendChild(typeLi);
+  });
+};
+
+const createPokeImage = (sprites, div) => {
+  const pokeImage = document.createElement("img");
+  pokeImage.srcset = sprites.front_default;
+  div.appendChild(pokeImage);
+};
 
 fetchPokemon();
