@@ -18,6 +18,9 @@ const fetchPokemonData = (pokemon) => {
 
 const renderData = (pokeData) => {
   const container = document.querySelector("#container");
+  const divs = [...container.children];
+  divs.sort((a, b) => a.id - b.id);
+  divs.forEach((div) => container.appendChild(div));
 
   const pokemonContainer = document.createElement("div");
   pokemonContainer.id = `${pokeData.id}`;
@@ -35,6 +38,8 @@ const renderData = (pokeData) => {
   createPokeImage(pokeData.sprites, sprite);
 
   pokemonContainer.append(name, id, sprite, type);
+  if (pokemonContainer.id) {
+  }
   container.appendChild(pokemonContainer);
 };
 
