@@ -24,10 +24,11 @@ const renderData = (pokeData) => {
 
   const pokemonContainer = document.createElement("div");
   pokemonContainer.id = `${pokeData.id}`;
-  pokemonContainer.classList = "";
+  pokemonContainer.className = "bg-white rounded shadow border p-6 w-64"
 
   const name = document.createElement("h2");
   name.innerHTML = pokeData.name;
+  name.className = "text-3xl font-bold mb-4 mt-0";
 
   const id = document.createElement("p");
   id.innerHTML = `N° ${pokeData.id}`;
@@ -39,8 +40,6 @@ const renderData = (pokeData) => {
   createPokeImage(pokeData.sprites, sprite);
 
   pokemonContainer.append(name, id, sprite, type);
-  if (pokemonContainer.id) {
-  }
   container.appendChild(pokemonContainer);
 };
 
