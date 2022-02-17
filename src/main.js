@@ -1,8 +1,6 @@
-const fetchPokemon = async () => {
+const fetchPokemon = () => {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
-    .then((res) => {
-      return res.json();
-    })
+    .then((res) => res.json())
     .then((resJSON) => {
       resJSON.results.forEach((pokemon) => {
         fetchPokemonData(pokemon);
@@ -10,20 +8,23 @@ const fetchPokemon = async () => {
     });
 };
 
-const fetchPokemonData = async (pokemon) => {
-  await fetch(pokemon.url)
-    .then((res) => {
-      return res.json();
-    })
+const fetchPokemonData = (pokemon) => {
+  fetch(pokemon.url)
+    .then((res) => res.json())
     .then((resJSON) => {
       renderData(resJSON);
     });
 };
 
-const renderData = async (pokeData) => {
+const renderData = (pokeData) => {
   const container = document.querySelector("#container");
+  const divs = [...container.children];
+  divs.sort((a, b) => a.id - b.id);
+  divs.forEach((div) => container.appendChild(div));
 
   const pokemonContainer = document.createElement("div");
+  pokemonContainer.id = `${pokeData.id}`;
+
   const name = document.createElement("h2");
   name.innerHTML = pokeData.name;
 
@@ -37,6 +38,8 @@ const renderData = async (pokeData) => {
   createPokeImage(pokeData.sprites, sprite);
 
   pokemonContainer.append(name, id, sprite, type);
+  if (pokemonContainer.id) {
+  }
   container.appendChild(pokemonContainer);
 };
 
