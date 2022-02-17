@@ -24,6 +24,7 @@ const renderData = (pokeData) => {
 
   const pokemonContainer = document.createElement("div");
   pokemonContainer.id = `${pokeData.id}`;
+  pokemonContainer.classList = "";
 
   const name = document.createElement("h2");
   name.innerHTML = pokeData.name;

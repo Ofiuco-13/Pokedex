@@ -1,0 +1,23 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex de la clase 12",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ofiuco-13/Pokedex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ofiuco-13/Pokedex/issues"
+  },
+  "homepage": "https://github.com/Ofiuco-13/Pokedex#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
