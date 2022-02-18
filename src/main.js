@@ -1,5 +1,5 @@
 const fetchPokemon = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
+  fetch("https://pokeapi.co/api/v2/pokemon?limit=27")
     .then((res) => res.json())
     .then((resJSON) => {
       resJSON.results.forEach((pokemon) => {
@@ -24,17 +24,18 @@ const renderData = (pokeData) => {
 
   const pokemonContainer = document.createElement("div");
   pokemonContainer.id = `${pokeData.id}`;
-  pokemonContainer.className = "bg-white rounded shadow border p-6 w-64"
+  pokemonContainer.className = "bg-white p-6 rounded-lg shadow-xl text-center cursor-pointer hover:-translate-y-1 transition-all duration-200";
 
   const name = document.createElement("h2");
   name.innerHTML = pokeData.name;
-  name.className = "text-3xl font-bold mb-4 mt-0";
+  name.className = "mb-2 font-bold text-2xl text-gray-600";
 
   const id = document.createElement("p");
   id.innerHTML = `N° ${pokeData.id}`;
 
   const type = document.createElement("ul");
   const sprite = document.createElement("div");
+  sprite.classList = "flex flex-col justify-center items-center";
 
   createTypes(pokeData.types, type);
   createPokeImage(pokeData.sprites, sprite);
@@ -46,6 +47,7 @@ const renderData = (pokeData) => {
 const createTypes = (types, ul) => {
   types.forEach((type) => {
     const typeLi = document.createElement("li");
+    typeLi.classList = "text-gray-500";
     typeLi.innerHTML = type["type"]["name"];
     ul.appendChild(typeLi);
   });
