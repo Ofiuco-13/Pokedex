@@ -17,8 +17,7 @@ const fetchPokemonData = (pokemon) => {
 };
 
 const renderData = (pokeData) => {
-  let generationV = pokeData.sprites.versions["generation-v"]["black-white"].animated;
-  console.log(generationV);
+  const gifSprite = pokeData.sprites.versions["generation-v"]["black-white"].animated;
 
   const container = document.querySelector("#container");
   const divs = [...container.children];
@@ -37,28 +36,30 @@ const renderData = (pokeData) => {
   id.innerHTML = `N° ${pokeData.id}`;
 
   const type = document.createElement("ul");
+  type.classList = "";
+
   const sprite = document.createElement("div");
   sprite.classList = "flex flex-col justify-center items-center";
 
   createTypes(pokeData.types, type);
-  createPokeImage(generationV, sprite);
+  createPokeImage(gifSprite, sprite);
 
-  pokemonContainer.append(name, id, sprite, type);
+  pokemonContainer.append(sprite, id, name, type);
   container.appendChild(pokemonContainer);
 };
 
 const createTypes = (types, ul) => {
   types.forEach((type) => {
-    const typeLi = document.createElement("li");
-    typeLi.classList = "text-gray-500";
-    typeLi.innerHTML = type["type"]["name"];
-    ul.appendChild(typeLi);
+    const typeP = document.createElement("li");
+    typeP.classList = "text-gray-500";
+    typeP.innerHTML = type["type"]["name"];
+    ul.appendChild(typeP);
   });
 };
 
 const createPokeImage = (sprites, div) => {
   const pokeImage = document.createElement("img");
-  pokeImage.srcset = sprites.front_shiny;
+  pokeImage.srcset = sprites.front_default;
   div.appendChild(pokeImage);
 };
 
