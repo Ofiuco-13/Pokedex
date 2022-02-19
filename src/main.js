@@ -1,5 +1,5 @@
 const fetchPokemon = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=27")
+  fetch("https://pokeapi.co/api/v2/pokemon?limit=12")
     .then((res) => res.json())
     .then((resJSON) => {
       resJSON.results.forEach((pokemon) => {
@@ -17,6 +17,9 @@ const fetchPokemonData = (pokemon) => {
 };
 
 const renderData = (pokeData) => {
+  let generationV = pokeData.sprites.versions["generation-v"]["black-white"].animated;
+  console.log(generationV);
+
   const container = document.querySelector("#container");
   const divs = [...container.children];
   divs.sort((a, b) => a.id - b.id);
@@ -38,7 +41,7 @@ const renderData = (pokeData) => {
   sprite.classList = "flex flex-col justify-center items-center";
 
   createTypes(pokeData.types, type);
-  createPokeImage(pokeData.sprites, sprite);
+  createPokeImage(generationV, sprite);
 
   pokemonContainer.append(name, id, sprite, type);
   container.appendChild(pokemonContainer);
@@ -55,7 +58,7 @@ const createTypes = (types, ul) => {
 
 const createPokeImage = (sprites, div) => {
   const pokeImage = document.createElement("img");
-  pokeImage.srcset = sprites.front_default;
+  pokeImage.srcset = sprites.front_shiny;
   div.appendChild(pokeImage);
 };
 
