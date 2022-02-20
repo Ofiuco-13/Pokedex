@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./index.html", "./src/main.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        roboto: ["Roboto"],
+      }
+    },
   },
   plugins: [],
 }
