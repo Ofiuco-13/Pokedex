@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth md:scroll-auto">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Pokedex</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='public/output.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="bg-blue-100 min-h-screen flex items-center justify-center">
-        <div id="container" class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-8"></div>
+
+<body class="bg-slate-200 font-roboto">
+    <!-- HEADER -->
+    <div class="pl-20">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <span class="block text-5xl text-black">Pokedex</span>
+            <span class="block text-gray-600">PokeAPI, TailwindCSS & Cypress.</span>
+          </h2>
+          <div class="mt-8 mr-20 flex lg:mt-0 lg:flex-shrink-0">
+            <div class="inline-flex rounded-md shadow">
+              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-xl font-bold rounded-md text-white bg-gray-600 hover:bg-gray-800 transition-all duration-300"> GitHub </a>
+            </div>
+            <div class="ml-3 inline-flex rounded-md shadow">
+              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-xl font-bold rounded-md text-indigo-600 bg-white hover:bg-gray-200 transition-all duration-300"> Other Projects </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- GRID -->
+    <div class=" min-h-screen flex items-center justify-center">
+        <div id="container" class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-8 "></div>
     </div>
     <script src="src/main.js"></script>
 </body>
+
 </html>
