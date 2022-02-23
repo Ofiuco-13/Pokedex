@@ -1,15 +1,21 @@
-let api = "https://pokeapi.co/api/v2/pokemon/";
+let api = "https://pokeapi.co/api/v2/pokemon?limit=12";
 const fetchPokemon = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((resJSON) => {
       resJSON.results.forEach((pokemon) => {
         fetchPokemonData(pokemon);
-      });//deberia crear los links en el html asi no se sobreescriben, crear una funcion para remover las cards anteriores. una vez qu se preisona un link.
+      });
       const previousButton = document.querySelector("#previous-button");
       const nextButton = document.querySelector("#next-button");
       previousButton.href = resJSON.previous;
       nextButton.href = resJSON.next;
+
+      if (previousButton.href === "http://127.0.0.1:5500/Pokedex/null") {
+        previousButton.classList = "hidden";
+      } else {
+        previousButton.classList = "";
+      }
     });
 };
 
@@ -162,12 +168,12 @@ fetchPokemon(api);
 
 const removeOldPokemons = () => {
   const pokeCards = document.querySelectorAll("#container div");
-  for(let i = 0; i < pokeCards.length; i++) {
+  for (let i = 0; i < pokeCards.length; i++) {
     pokeCards[i].remove();
   }
-}
+};
 
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
   if (e.target.matches("#buttons a")) {
     e.preventDefault();
     removeOldPokemons();
