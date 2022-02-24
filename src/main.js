@@ -14,7 +14,7 @@ const fetchPokemon = (url) => {
       if (previousButton.href === "http://127.0.0.1:5500/Pokedex/null") {
         previousButton.classList = "hidden";
       } else {
-        previousButton.classList = "";
+        previousButton.classList = "absolute right-2/3";
       }
     });
 };
