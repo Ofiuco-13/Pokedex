@@ -180,8 +180,7 @@ const createTypeColor = (element, type) => {
   }
 };
 
-// document.addEventListener("DOMContentLoaded", e => fetchPokemon(api));
-fetchPokemon(api);
+document.addEventListener("DOMContentLoaded", () => fetchPokemon(api));
 
 const removeOldPokemons = () => {
   const pokeCards = document.querySelectorAll("#container div");
