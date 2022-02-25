@@ -10,11 +10,28 @@ const fetchPokemon = (url) => {
       const nextButton = document.querySelector("#next-button");
       previousButton.href = resJSON.previous;
       nextButton.href = resJSON.next;
+      nextButton.classList = `
+      bg-gray-300 
+      hover:bg-gray-400
+      transition-all duration-300 
+      text-gray-800 
+      font-bold 
+      py-2 
+      px-4 
+      rounded-r`;
 
       if (previousButton.href === "http://127.0.0.1:5500/Pokedex/null") {
         previousButton.classList = "hidden";
       } else {
-        previousButton.classList = "absolute right-2/3";
+        previousButton.classList = `
+        bg-gray-300 
+        hover:bg-gray-400 
+        transition-all duration-300
+        text-gray-800 
+        font-bold 
+        py-2 
+        px-4 
+        rounded-l`;
       }
     });
 };
