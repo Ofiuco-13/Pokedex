@@ -50,6 +50,7 @@ const renderData = (pokeData) => {
   const pokemonContainer = document.createElement("div");
   pokemonContainer.id = `${pokeData.id}`;
   pokemonContainer.classList = `
+  card
   relative
   bg-white 
   p-6 
@@ -194,5 +195,18 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     removeOldPokemons();
     fetchPokemon(e.target.getAttribute("href"));
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.matches(".card") ||
+    e.target.matches(".card p") ||
+    e.target.matches(".card img") ||
+    e.target.matches(".card h2") ||
+    e.target.matches(".card span")
+  ) {
+   const sidebar = document.querySelector("#sidebar");
+   sidebar.classList.toggle("-translate-x-full");
   }
 });
