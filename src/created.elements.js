@@ -86,6 +86,7 @@ const renderData = (pokeData) => {
 
   pokemonContainer.append(id, sprite, name, type);
   container.appendChild(pokemonContainer);
+  testRenderData(pokeData);
 };
 
 const sortCardsById = (container) => {
@@ -137,7 +138,7 @@ const createTypeColor = (element, type) => {
       "bg-red-500 text-gray-800 text-bold rounded py-1 px-1.5 mr-1";
   } else if (type["type"]["name"] === "dark") {
     element.classList =
-      "bg-zinc-800 text-gray-800 text-bold rounded py-1 px-1.5 mr-1";
+      "bg-zinc-800 text-white text-bold rounded py-1 px-1.5 mr-1";
   } else if (type["type"]["name"] === "dragon") {
     element.classList =
       "bg-blue-600 text-gray-800 text-bold rounded py-1 px-1.5 mr-1";

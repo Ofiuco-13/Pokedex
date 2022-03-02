@@ -7,6 +7,7 @@ const fetchPokemon = (url) => {
         fetchPokemonData(pokemon);
       });
       createButtons(resJSON);
+      testFetchPokemon(resJSON);
     });
 };
 
@@ -43,13 +44,15 @@ const showContent = (res) => {
 
 const showSideBar = (element) => {
   element.classList.toggle("-translate-x-full");
+  testShowSidebar(element);
 };
 
 const hideSideBar = () => {
   sidebar.classList.toggle("-translate-x-full");
-  removePokeData();
+  removePokeData(sidebar);
 };
 
-const removePokeData = () => {
-  sidebar.innerHTML = "\n        ";
+const removePokeData = (element) => {
+  element.innerHTML = "\n        ";
+  testRemovePokeData(element);
 };
