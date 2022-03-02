@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Ofiuco-13/Pokedex#readme",
   "devDependencies": {
     "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "cypress": "^9.5.1"
   }
 }
