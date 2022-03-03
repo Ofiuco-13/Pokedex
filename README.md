@@ -5,7 +5,6 @@
  # PokeAPI
  [PokeAPI](https://pokeapi.co/) is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.
  
- ---
  1. If you want to use this project use the script below,  this command will also update all the packages listed to the latest version and also install missing packages.
  ```
  npm update
