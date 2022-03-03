@@ -1,6 +1,6 @@
 const URL = "http://127.0.0.1:5500/Pokedex/index.html";
 
-describe("Verifica la funcionalidad del formulario", () => {
+describe("e2e test for pokedex", () => {
   before(() => {
     cy.visit(URL);
   });
