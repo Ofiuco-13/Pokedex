@@ -1,5 +1,5 @@
 # Pokedex with PokeAPI
- In this pokedex you can see 1000+ pokemons with their respective stats and abilities. All was made with vanilla [Javascript](https://www.javascript.com/), [TailwindCSS](https://tailwindcss.com/), also contains unit tests ands tests e2e with [Cypress](https://www.cypress.io/).
+ In this pokedex you can see 1000+ pokemons with their respective stats and abilities. All was made with vanilla [Javascript](https://www.javascript.com/), [TailwindCSS](https://tailwindcss.com/), also contains unit tests and tests e2e with [Cypress](https://www.cypress.io/).
  
  ---
  # PokeAPI
