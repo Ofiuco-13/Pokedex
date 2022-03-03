@@ -4,7 +4,8 @@
   "description": "Pokedex de la clase 12",
   "main": "index.js",
   "scripts": {
-    "start": "npx tailwindcss -i ./src/main.css -o ./public/output.css --watch"
+    "start": "npx tailwindcss -i ./src/main.css -o ./public/output.css --watch",
+    "cy:dev": "./node_modules/.bin/cypress open"
   },
   "repository": {
     "type": "git",

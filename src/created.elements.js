@@ -1,6 +1,7 @@
 const createButtons = (res) => {
   const previousButton = document.querySelector("#previous-button");
   const nextButton = document.querySelector("#next-button");
+  nextButton.id = "next-button";
   previousButton.href = res.previous;
   nextButton.href = res.next;
   nextButton.classList = `
@@ -27,6 +28,7 @@ const createButtons = (res) => {
     px-4 
     rounded-l
     `;
+    previousButton.id = "previous-button";
   }
 };
 
@@ -179,6 +181,7 @@ const createElements = (pokeData) => {
   `;
 
   const exitButton = document.createElement("button");
+  exitButton.id = "exit-button";
   exitButton.innerHTML = "Done";
   exitButton.setAttribute("onclick", "hideSideBar()");
   exitButton.classList = `
