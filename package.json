@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Pokedex de la clase 12",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "npx tailwindcss -i ./src/main.css -o ./public/output.css --watch",
     "cy:dev": "./node_modules/.bin/cypress open"
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/Ofiuco-13/Pokedex#readme",
   "devDependencies": {
+    "eslint": "^8.10.0",
     "tailwindcss": "^3.0.23"
   },
   "dependencies": {

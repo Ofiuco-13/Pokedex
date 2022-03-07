@@ -56,3 +56,16 @@ const removePokeData = (element) => {
   element.innerHTML = "\n        ";
   testRemovePokeData(element);
 };
+
+const exportedObject = {
+  fetchPokemon,
+  fetchPokemonData,
+  removeOldPokemons,
+  obtainId,
+  showContent,
+  showSideBar,
+  hideSideBar,
+  removePokeData,
+};
+
+export {exportedObject};
