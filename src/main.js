@@ -1,5 +1,8 @@
-const api = "https://pokeapi.co/api/v2/pokemon?limit=12";
-const fetchPokemon = (url) => {
+import { createButtons, renderData, createElements } from "./created.elements.js";
+import { testFetchPokemon, testShowSidebar, testRemovePokeData } from "./tests.js";
+
+export const api = "https://pokeapi.co/api/v2/pokemon?limit=12";
+export const fetchPokemon = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((resJSON) => {
@@ -11,7 +14,7 @@ const fetchPokemon = (url) => {
     });
 };
 
-const fetchPokemonData = (pokemon) => {
+export const fetchPokemonData = (pokemon) => {
   fetch(pokemon.url)
     .then((res) => res.json())
     .then((resJSON) => {
@@ -19,14 +22,14 @@ const fetchPokemonData = (pokemon) => {
     });
 };
 
-const removeOldPokemons = () => {
+export const removeOldPokemons = () => {
   const pokeCards = document.querySelectorAll("#container div");
   for (let i = 0; i < pokeCards.length; i++) {
     pokeCards[i].remove();
   }
 };
 
-const obtainId = (id) => {
+export const obtainId = (id) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     .then((res) => res.json())
     .then((resJSON) => {
@@ -34,7 +37,7 @@ const obtainId = (id) => {
     });
 };
 
-const showContent = (res) => {
+export const showContent = (res) => {
   const sidebar = document.querySelector("#sidebar");
   if (sidebar.innerHTML === "\n        ") {
     createElements(res);
@@ -42,30 +45,17 @@ const showContent = (res) => {
   }
 };
 
-const showSideBar = (element) => {
+export const showSideBar = (element) => {
   element.classList.toggle("-translate-x-full");
   testShowSidebar(element);
 };
 
-const hideSideBar = () => {
+export const hideSideBar = () => {
   sidebar.classList.toggle("-translate-x-full");
   removePokeData(sidebar);
 };
 
-const removePokeData = (element) => {
+export const removePokeData = (element) => {
   element.innerHTML = "\n        ";
   testRemovePokeData(element);
 };
-
-const exportedObject = {
-  fetchPokemon,
-  fetchPokemonData,
-  removeOldPokemons,
-  obtainId,
-  showContent,
-  showSideBar,
-  hideSideBar,
-  removePokeData,
-};
-
-export {exportedObject};

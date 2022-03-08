@@ -1,4 +1,7 @@
-const createButtons = (res) => {
+import { hideSideBar, obtainId } from "./main.js";
+import { testRenderData } from "./tests.js";
+
+export const createButtons = (res) => {
   const previousButton = document.querySelector("#previous-button");
   const nextButton = document.querySelector("#next-button");
   nextButton.id = "next-button";
@@ -32,11 +35,13 @@ const createButtons = (res) => {
   }
 };
 
-const renderData = (pokeData) => {
+export const renderData = (pokeData) => {
   const container = document.querySelector("#container");
 
   const pokemonContainer = document.createElement("div");
-  pokemonContainer.setAttribute("onclick", "obtainId(this.id)");
+  pokemonContainer.addEventListener("click", () => {
+    obtainId(pokeData.id);
+  });
   pokemonContainer.id = `${pokeData.id}`;
   pokemonContainer.classList = `
   card
@@ -91,13 +96,13 @@ const renderData = (pokeData) => {
   testRenderData(pokeData);
 };
 
-const sortCardsById = (container) => {
+export const sortCardsById = (container) => {
   const divs = [...container.children];
   divs.sort((a, b) => a.id - b.id);
   divs.forEach((div) => container.appendChild(div));
 };
 
-const createTypes = (types, div) => {
+export const createTypes = (types, div) => {
   types.forEach((type) => {
     const typeSpan = document.createElement("span");
     typeSpan.innerHTML = type["type"]["name"].toUpperCase();
@@ -106,14 +111,14 @@ const createTypes = (types, div) => {
   });
 };
 
-const createPokeImage = (sprites, div) => {
+export const createPokeImage = (sprites, div) => {
   const pokeImage = document.createElement("img");
   pokeImage.srcset = sprites.front_default;
   pokeImage.classList = "mt-5";
   div.appendChild(pokeImage);
 };
 
-const createTypeColor = (element, type) => {
+export const createTypeColor = (element, type) => {
   if (type["type"]["name"] === "grass") {
     element.classList =
       "bg-green-500 text-gray-800 text-bold rounded py-1 px-1.5 mr-1";
@@ -171,7 +176,7 @@ const createTypeColor = (element, type) => {
   }
 };
 
-const createElements = (pokeData) => {
+export const createElements = (pokeData) => {
   const gifSprite = pokeData.sprites.versions["generation-v"]["black-white"];
   const sprite = document.createElement("div");
   sprite.classList = `
@@ -183,7 +188,9 @@ const createElements = (pokeData) => {
   const exitButton = document.createElement("button");
   exitButton.id = "exit-button";
   exitButton.innerHTML = "Done";
-  exitButton.setAttribute("onclick", "hideSideBar()");
+  exitButton.addEventListener("click", () => {
+    hideSideBar();
+  });
   exitButton.classList = `
   absolute
   top-2
@@ -286,7 +293,7 @@ const createElements = (pokeData) => {
   );
 };
 
-const createAbilities = (abilities, div) => {
+export const createAbilities = (abilities, div) => {
   abilities.forEach((index) => {
     const abilitySpan = document.createElement("span");
     abilitySpan.classList = `
@@ -303,7 +310,7 @@ const createAbilities = (abilities, div) => {
   });
 };
 
-const createBodyData = (height, weight, div) => {
+export const createBodyData = (height, weight, div) => {
   const pokeHeight = document.createElement("span");
   const pokeWeight = document.createElement("span");
   pokeHeight.innerHTML = `Height: ${height}`;
@@ -311,7 +318,7 @@ const createBodyData = (height, weight, div) => {
   div.append(pokeHeight, pokeWeight);
 };
 
-const createStats = (stats, div) => {
+export const createStats = (stats, div) => {
   stats.forEach((stat) => {
     const statName = document.createElement("span");
     const statBase = document.createElement("span");

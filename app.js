@@ -1,3 +1,5 @@
+import { api, fetchPokemon, removeOldPokemons } from "./src/main.js";
+
 document.addEventListener("DOMContentLoaded", () => fetchPokemon(api));
 
 document.addEventListener("click", (e) => {
