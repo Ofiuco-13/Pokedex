@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./index.html", "./src/main.js"],
+  content: ["./index.html", "./src/pokedex.js"],
   theme: {
     extend: {
       fontFamily: {

@@ -1,6 +1,6 @@
-import { api, fetchPokemon, removeOldPokemons } from "./src/main.js";
+import { pokeApi, fetchPokemon, removeOldPokemons } from "./pokeapi.js";
 
-document.addEventListener("DOMContentLoaded", () => fetchPokemon(api));
+document.addEventListener("DOMContentLoaded", () => fetchPokemon(pokeApi));
 
 document.addEventListener("click", (e) => {
   if (e.target.matches("#buttons a")) {

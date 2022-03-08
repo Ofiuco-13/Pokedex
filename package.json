@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx tailwindcss -i ./src/main.css -o ./public/output.css --watch",
+    "start": "npx tailwindcss -i ./src/ui/main.css -o ./public/output.css --watch",
     "cy:dev": "./node_modules/.bin/cypress open"
   },
   "repository": {

@@ -1,7 +1,16 @@
-import { createButtons, renderData, createElements } from "./created.elements.js";
-import { testFetchPokemon, testShowSidebar, testRemovePokeData } from "./tests.js";
+import {
+  createButtons,
+  renderData,
+  createElements,
+} from "./ui/created.elements.js";
 
-export const api = "https://pokeapi.co/api/v2/pokemon?limit=12";
+import {
+  testFetchPokemon,
+  testShowSidebar,
+  testRemovePokeData,
+} from "./tests/tests.js";
+
+export const pokeApi = "https://pokeapi.co/api/v2/pokemon?limit=12";
 export const fetchPokemon = (url) => {
   fetch(url)
     .then((res) => res.json())

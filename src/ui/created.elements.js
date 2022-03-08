@@ -1,5 +1,5 @@
-import { hideSideBar, obtainId } from "./main.js";
-import { testRenderData } from "./tests.js";
+import { hideSideBar, obtainId } from "../pokeapi.js";
+import { testRenderData } from "../tests/tests.js";
 
 export const createButtons = (res) => {
   const previousButton = document.querySelector("#previous-button");
