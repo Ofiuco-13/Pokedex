@@ -1,17 +1,9 @@
-import {
-  createButtons,
-  renderData,
-  createElements,
-} from "./ui/created.elements.js";
+import { renderData } from "./ui/grid.js";
+import { createButtons } from "./ui/buttons.js";
+import tests from "./tests/tests.js";
 
-import {
-  testFetchPokemon,
-  testShowSidebar,
-  testRemovePokeData,
-} from "./tests/tests.js";
-
-export const pokeApi = "https://pokeapi.co/api/v2/pokemon?limit=12";
-export const fetchPokemon = (url) => {
+const pokeApi = "https://pokeapi.co/api/v2/pokemon?limit=12";
+const fetchPokemon = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((resJSON) => {
@@ -19,11 +11,11 @@ export const fetchPokemon = (url) => {
         fetchPokemonData(pokemon);
       });
       createButtons(resJSON);
-      testFetchPokemon(resJSON);
+      tests.testFetchPokemon(resJSON);
     });
 };
 
-export const fetchPokemonData = (pokemon) => {
+const fetchPokemonData = (pokemon) => {
   fetch(pokemon.url)
     .then((res) => res.json())
     .then((resJSON) => {
@@ -31,40 +23,10 @@ export const fetchPokemonData = (pokemon) => {
     });
 };
 
-export const removeOldPokemons = () => {
-  const pokeCards = document.querySelectorAll("#container div");
-  for (let i = 0; i < pokeCards.length; i++) {
-    pokeCards[i].remove();
-  }
+const object = {
+  pokeApi,
+  fetchPokemon,
+  fetchPokemonData,
 };
 
-export const obtainId = (id) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then((res) => res.json())
-    .then((resJSON) => {
-      showContent(resJSON);
-    });
-};
-
-export const showContent = (res) => {
-  const sidebar = document.querySelector("#sidebar");
-  if (sidebar.innerHTML === "\n        ") {
-    createElements(res);
-    showSideBar(sidebar);
-  }
-};
-
-export const showSideBar = (element) => {
-  element.classList.toggle("-translate-x-full");
-  testShowSidebar(element);
-};
-
-export const hideSideBar = () => {
-  sidebar.classList.toggle("-translate-x-full");
-  removePokeData(sidebar);
-};
-
-export const removePokeData = (element) => {
-  element.innerHTML = "\n        ";
-  testRemovePokeData(element);
-};
+export default object;

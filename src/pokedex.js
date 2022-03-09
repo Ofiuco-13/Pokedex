@@ -1,11 +1,12 @@
-import { pokeApi, fetchPokemon, removeOldPokemons } from "./pokeapi.js";
+import grid from "./ui/grid.js";
+import object from "./pokeapi.js";
 
-document.addEventListener("DOMContentLoaded", () => fetchPokemon(pokeApi));
+document.addEventListener("DOMContentLoaded", () => object.fetchPokemon(object.pokeApi));
 
 document.addEventListener("click", (e) => {
   if (e.target.matches("#buttons a")) {
     e.preventDefault();
-    removeOldPokemons();
-    fetchPokemon(e.target.getAttribute("href"));
+    grid.removeOldPokemons();
+    object.fetchPokemon(e.target.getAttribute("href"));
   }
 });
